@@ -16,12 +16,12 @@ class BookStoreSpec extends Specification {
         bookStoreFacade = new BookStoreFacade(studentsFacade, bookRepository, paymentsFacade)
     }
 
-    def "Should rent a book"(){
+    def "Wypozyczenie ksiazki"(){
         def bookId = 5L
         def studentId = 2L
 
-        given: "Zakładając, że istnieje ksiazka o nazwie \"w pustyni i w puszczy\" o id 5"
-        bookRepository.findBook(bookId) >> new Book()
+        given: "Zakładając, że istnieje ksiazka o tytule \"w pustyni i w puszczy\" o id 5"
+        bookRepository.findBook(bookId) >> new Book(title: "w pustyni i w puszczy")
 
         and: "I licencja studenta jest ważna"
         studentsFacade.checkIfStudentLicenseIsValid(studentId) >> true
@@ -37,8 +37,8 @@ class BookStoreSpec extends Specification {
         def bookId = 5L
         def studentId = 2L
 
-        given: "Zakładając, że istnieje ksiazka o nazwie \"w pustyni i w puszczy\" o id 5"
-        bookRepository.findBook(bookId) >> new Book()
+        given: "Zakładając, że istnieje ksiazka o tytule \"w pustyni i w puszczy\" o id 5"
+        bookRepository.findBook(bookId) >> new Book(title: "w pustyni i w puszczy")
 
         and: "I licencja studenta nie jest ważna"
         studentsFacade.checkIfStudentLicenseIsValid(studentId) >> false
@@ -54,8 +54,8 @@ class BookStoreSpec extends Specification {
         def bookId = 5L
         def studentId = 2L
 
-        given: "Zakładając, że istnieje ksiazka o nazwie \"w pustyni i w puszczy\" o id 5"
-        bookRepository.findBook(bookId) >> new Book()
+        given: "Zakładając, że istnieje ksiazka o tytule \"w pustyni i w puszczy\" o id 5"
+        bookRepository.findBook(bookId) >> new Book(title: "w pustyni i w puszczy")
 
         and: "I licencja studenta jest ważna"
         studentsFacade.checkIfStudentLicenseIsValid(studentId) >> true
@@ -73,8 +73,8 @@ class BookStoreSpec extends Specification {
         def bookId = 5L
         def studentId = 2L
 
-        given: "Zakładając, że istnieje ksiazka o nazwie \"w pustyni i w puszczy\" o id 5"
-        bookRepository.findBook(bookId) >> new Book()
+        given: "Zakładając, że istnieje ksiazka o tytule \"w pustyni i w puszczy\" o id 5"
+        bookRepository.findBook(bookId) >> new Book(title: "w pustyni i w puszczy")
 
         and: "I licencja studenta jest ważna"
         studentsFacade.checkIfStudentLicenseIsValid(studentId) >> true
@@ -91,8 +91,8 @@ class BookStoreSpec extends Specification {
         def bookId = 5L
         def studentId = 2L
 
-        given: "Zakładając, że istnieje ksiazka o nazwie \"w pustyni i w puszczy\" o id 5"
-        bookRepository.findBook(bookId) >> new Book()
+        given: "Zakładając, że istnieje ksiazka o tytule \"w pustyni i w puszczy\" o id 5"
+        bookRepository.findBook(bookId) >> new Book(title: "w pustyni i w puszczy")
 
         and: "I licencja studenta nie jest ważna"
         studentsFacade.checkIfStudentLicenseIsValid(studentId) >> false
@@ -109,8 +109,8 @@ class BookStoreSpec extends Specification {
         def bookId = 5L
         def studentId = 2L
 
-        given: "Zakładając, że istnieje ksiazka o nazwie \"w pustyni i w puszczy\" o id 5"
-        bookRepository.findBook(bookId) >> new Book()
+        given: "Zakładając, że istnieje ksiazka o tytule \"w pustyni i w puszczy\" o id 5"
+        bookRepository.findBook(bookId) >> new Book(title: "w pustyni i w puszczy")
 
         and: "I pytając o licencje studenta dosteniemy błąd NullPointerException"
         studentsFacade.checkIfStudentLicenseIsValid(studentId) >> {throw new NullPointerException()}
@@ -130,8 +130,8 @@ class BookStoreSpec extends Specification {
         def bookId = 5L
         def studentId = 2L
 
-        given: "Zakładając, że istnieje ksiazka o nazwie \"w pustyni i w puszczy\" o id 5"
-        bookRepository.findBook(bookId) >> new Book()
+        given: "Zakładając, że istnieje ksiazka o tytule \"w pustyni i w puszczy\" o id 5"
+        bookRepository.findBook(bookId) >> new Book(title: "w pustyni i w puszczy")
 
         and: "I licencja studenta jest ważna"
         studentsFacade.checkIfStudentLicenseIsValid(studentId) >> true
@@ -152,6 +152,4 @@ class BookStoreSpec extends Specification {
         0 * bookRepository._(_)
 
     }
-
-
 }
