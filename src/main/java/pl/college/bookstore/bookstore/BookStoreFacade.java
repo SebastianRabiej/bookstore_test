@@ -15,9 +15,7 @@ public class BookStoreFacade {
     }
 
     public boolean rentABook(long bookId, long studentId){
-        if(!(studentsFacade.checkIfStudentLicenseIsValid(studentId)
-                || studentsFacade.checkIfStudentLicenseIsValid(studentId))){ // TODO SZYBKI FIX NA PRODUKCJI BY JUREK
-                                                                             // TODO CODE REVIEW
+        if(!(studentsFacade.checkIfStudentLicenseIsValid(studentId))){
             return false;
         }
         final Book book = bookRepository.findBook(bookId);
